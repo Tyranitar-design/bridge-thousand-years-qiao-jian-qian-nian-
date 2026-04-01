@@ -1,0 +1,388 @@
+/* 【桥见千年】古风组件样式库 - 精简版 */
+
+/* ========================================
+   祥云纹装饰
+   ======================================== */
+
+.cloud-decoration {
+  position: relative;
+}
+
+.cloud-decoration::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(201, 169, 98, 0.3) 20%, 
+    rgba(201, 169, 98, 0.3) 80%, 
+    transparent 100%
+  );
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0 20 Q10 10 20 15 Q30 20 40 10 Q50 5 60 12 Q70 18 80 10 Q90 5 100 15 L100 20 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0 20 Q10 10 20 15 Q30 20 40 10 Q50 5 60 12 Q70 18 80 10 Q90 5 100 15 L100 20 Z' fill='white'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ========================================
+   回纹边框卡片
+   ======================================== */
+
+.meander-card {
+  position: relative;
+  background: rgba(245, 240, 230, 0.95);
+  border: 1px solid rgba(139, 35, 35, 0.15);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.meander-card::before,
+.meander-card::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #C9A962;
+  opacity: 0.5;
+}
+
+.meander-card::before {
+  top: 6px;
+  left: 6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.meander-card::after {
+  bottom: 6px;
+  right: 6px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ========================================
+   印章样式增强
+   ======================================== */
+
+.seal-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  background: #8B2323;
+  color: #F5F0E6;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.seal-badge::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 1px solid rgba(245, 240, 230, 0.3);
+}
+
+.seal-outline-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border: 2px solid #8B2323;
+  color: #8B2323;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 2px;
+}
+
+/* ========================================
+   分隔线
+   ======================================== */
+
+.ancient-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.ancient-divider::before,
+.ancient-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.5), transparent);
+}
+
+.ancient-divider .divider-icon {
+  margin: 0 16px;
+  color: #C9A962;
+  font-size: 14px;
+}
+
+/* ========================================
+   古风按钮
+   ======================================== */
+
+.btn-ancient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #8B2323 0%, #6B1A1A 100%);
+  color: #F5F0E6;
+  border: 1px solid #8B2323;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ancient:hover {
+  background: linear-gradient(135deg, #A52A2A 0%, #8B2323 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 35, 35, 0.3);
+}
+
+.btn-ancient-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: #8B2323;
+  border: 2px solid #8B2323;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ancient-outline:hover {
+  background: rgba(139, 35, 35, 0.08);
+}
+
+/* ========================================
+   古风输入框
+   ======================================== */
+
+.input-ancient {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(245, 240, 230, 0.9);
+  border: 1px solid rgba(139, 35, 35, 0.2);
+  color: #2A2A2A;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-ancient:focus {
+  outline: none;
+  border-color: #C9A962;
+  box-shadow: 0 0 0 2px rgba(201, 169, 98, 0.2);
+}
+
+.input-ancient::placeholder {
+  color: #7A7A7A;
+}
+
+/* ========================================
+   标题样式
+   ======================================== */
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.title-section .seal {
+  width: 28px;
+  height: 28px;
+  background: #8B2323;
+  color: #F5F0E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.title-section h3 {
+  font-size: 16px;
+  color: #2A2A2A;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.title-section .title-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201, 169, 98, 0.4), transparent);
+}
+
+/* ========================================
+   水墨加载动画
+   ======================================== */
+
+@keyframes inkSpread {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.ink-loader {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.ink-loader::before,
+.ink-loader::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8B2323 0%, transparent 70%);
+  animation: inkSpread 2s ease-out infinite;
+}
+
+.ink-loader::after {
+  animation-delay: 1s;
+}
+
+/* ========================================
+   卡片悬浮效果
+   ======================================== */
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================================
+   页面过渡动画
+   ======================================== */
+
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+
+/* 淡入上移 */
+.fade-up-enter-active {
+  transition: all 0.4s ease;
+}
+
+.fade-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ========================================
+   桥梁类型标签
+   ======================================== */
+
+.bridge-type-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
+
+.bridge-type-tag.type-arch {
+  background: rgba(139, 35, 35, 0.15);
+  color: #8B2323;
+  border: 1px solid rgba(139, 35, 35, 0.3);
+}
+
+.bridge-type-tag.type-beam {
+  background: rgba(30, 58, 95, 0.15);
+  color: #1E3A5F;
+  border: 1px solid rgba(30, 58, 95, 0.3);
+}
+
+.bridge-type-tag.type-cable {
+  background: rgba(46, 139, 87, 0.15);
+  color: #2E8B57;
+  border: 1px solid rgba(46, 139, 87, 0.3);
+}
+
+.bridge-type-tag.type-floating {
+  background: rgba(201, 169, 98, 0.15);
+  color: #8B7355;
+  border: 1px solid rgba(201, 169, 98, 0.3);
+}
+
+/* ========================================
+   朝代标签
+   ======================================== */
+
+.dynasty-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: #4A4A4A;
+  border: 1px solid rgba(139, 35, 35, 0.2);
+  background: rgba(139, 35, 35, 0.05);
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* ========================================
+   响应式调整
+   ======================================== */
+
+@media (max-width: 768px) {
+  .meander-card {
+    padding: 16px;
+  }
+  
+  .btn-ancient,
+  .btn-ancient-outline {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .title-section h3 {
+    font-size: 14px;
+  }
+}

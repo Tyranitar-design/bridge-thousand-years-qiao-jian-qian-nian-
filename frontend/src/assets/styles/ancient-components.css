@@ -1,0 +1,294 @@
+/* 【桥见千年】古风组件样式库 */
+
+/* ========================================
+   祥云纹装饰
+   ======================================== */
+
+/* 顶部祥云装饰 */
+.cloud-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Cpath d='M0 30 Q15 15 30 22 Q45 30 60 18 Q75 8 90 20 Q105 30 120 15 Q135 5 150 18 Q165 30 180 20 Q195 12 200 30' fill='none' stroke='%23C9A962' stroke-width='0.8' opacity='0.4'/%3E%3Cpath d='M0 30 Q20 20 40 25 Q60 30 80 20 Q100 10 120 22 Q140 30 160 18 Q180 10 200 25' fill='none' stroke='%238B2323' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E") repeat-x;
+  pointer-events: none;
+}
+
+/* 底部祥云装饰 */
+.cloud-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Cpath d='M0 0 Q15 15 30 8 Q45 0 60 12 Q75 22 90 10 Q105 0 120 15 Q135 25 150 12 Q165 0 180 10 Q195 18 200 0' fill='none' stroke='%23C9A962' stroke-width='0.8' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
+  pointer-events: none;
+}
+
+/* 祥云背景 */
+.cloud-bg {
+  position: relative;
+}
+
+.cloud-bg::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 120px;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Cpath d='M20 40 Q30 25 45 32 Q55 40 70 30 Q85 20 100 32 Q110 40 115 35' fill='none' stroke='%23C9A962' stroke-width='1' opacity='0.3'/%3E%3Cpath d='M10 50 Q25 40 40 45 Q55 50 70 42 Q85 35 100 45 Q110 50 115 48' fill='none' stroke='%238B2323' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E") no-repeat;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ========================================
+   回纹边框
+   ======================================== */
+
+/* 回纹边框容器 */
+.meander-border {
+  position: relative;
+  padding: 20px;
+  background: rgba(245, 240, 230, 0.95);
+}
+
+.meander-border::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(90deg, #C9A962 8px, transparent 8px) repeat-x,
+    linear-gradient(90deg, #C9A962 8px, transparent 8px) repeat-x,
+    linear-gradient(0deg, #C9A962 8px, transparent 8px) repeat-y,
+    linear-gradient(0deg, #C9A962 8px, transparent 8px) repeat-y;
+  background-size: 16px 2px, 16px 2px, 2px 16px, 2px 16px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  pointer-events: none;
+}
+
+/* 回纹四角 */
+.meander-corners {
+  position: relative;
+}
+
+.meander-corners::before,
+.meander-corners::after {
+  content: '◈';
+  position: absolute;
+  color: #C9A962;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.meander-corners::before {
+  top: 8px;
+  left: 8px;
+}
+
+.meander-corners::after {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* ========================================
+   古风卡片增强版
+   ======================================== */
+
+.ancient-card-pro {
+  position: relative;
+  background: linear-gradient(135deg, rgba(245, 240, 230, 0.98) 0%, rgba(232, 224, 208, 0.95) 100%);
+  border: 1px solid rgba(139, 35, 35, 0.15);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 
+    0 2px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.ancient-card-pro:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(201, 169, 98, 0.4);
+}
+
+/* 四角装饰 - 增强版 */
+.ancient-card-pro .corner-deco {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #C9A962;
+  opacity: 0.5;
+}
+
+.ancient-card-pro .corner-deco.tl {
+  top: 6px;
+  left: 6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ancient-card-pro .corner-deco.tr {
+  top: 6px;
+  right: 6px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.ancient-card-pro .corner-deco.bl {
+  bottom: 6px;
+  left: 6px;
+  border-right: none;
+  border-top: none;
+}
+
+.ancient-card-pro .corner-deco.br {
+  bottom: 6px;
+  right: 6px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ========================================
+   印章组件
+   ======================================== */
+
+/* 方形印章 */
+.seal-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #8B2323;
+  color: #F5F0E6;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 0;
+  position: relative;
+}
+
+.seal-square::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 1px solid rgba(245, 240, 230, 0.3);
+}
+
+/* 圆形印章 */
+.seal-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #8B2323;
+  color: #8B2323;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: relative;
+}
+
+.seal-circle::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid #8B2323;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* 印章组 */
+.seal-group {
+  display: flex;
+  gap: 8px;
+}
+
+.seal-group .seal-square,
+.seal-group .seal-circle {
+  transform: rotate(-5deg);
+}
+
+.seal-group .seal-square:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.seal-group .seal-circle:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+/* ========================================
+   分隔线装饰
+   ======================================== */
+
+/* 双线分隔 */
+.divider-double {
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-double::before,
+.divider-double::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A962, transparent);
+}
+
+.divider-double::before {
+  top: 6px;
+  width: 100%;
+}
+
+.divider-double::after {
+  bottom: 6px;
+  width: 80%;
+}
+
+/* 中间带装饰的分隔线 */
+.divider-decorated {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divider-decorated::before,
+.divider-decorated::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.6), transparent);
+}
+
+.divider-decorated .deco-icon {
+  margin: 0 20px;
+  color: #C9A962;
+  font-size: 18px;
+}
+
+/* 祥云分隔线 */
+.divider-cloud {
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40'%3E%3Cpath d='M0 20 Q30 5 60 15 Q90 25 120 10 Q150 0 180 15 Q210 25 240 12 Q270 2 300 15 Q330 25 360 10 Q390 0 400 20' fill='none' stroke='%23C9A962' stroke-width='1' opacity='0.4'/%3E%3C/svg

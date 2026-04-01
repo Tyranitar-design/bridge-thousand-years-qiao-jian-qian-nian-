@@ -1,0 +1,152 @@
+/* 【桥见千年】中国古代桥梁智慧可视化平台 - 全局样式 */
+
+/* 导入古风主题 */
+@import './assets/styles/main.css';
+@import './assets/styles/ancient-theme.css';
+
+/* 页面过渡动画 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* 全局滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E0D0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B7355;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B2323;
+}
+
+/* 选中文字样式 */
+::selection {
+  background: rgba(139, 35, 35, 0.2);
+  color: #2A2A2A;
+}
+
+/* 全局链接 */
+a {
+  color: #8B2323;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #C9A962;
+}
+
+/* 禁用选中的 Element Plus 默认蓝色 */
+.el-button--primary {
+  --el-button-bg-color: #8B2323;
+  --el-button-border-color: #8B2323;
+  --el-button-hover-bg-color: #6B1A1A;
+  --el-button-hover-border-color: #6B1A1A;
+  --el-button-active-bg-color: #5A1515;
+  --el-button-active-border-color: #5A1515;
+}
+
+.el-button--success {
+  --el-button-bg-color: #2E8B57;
+  --el-button-border-color: #2E8B57;
+}
+
+.el-button--warning {
+  --el-button-bg-color: #C9A962;
+  --el-button-border-color: #C9A962;
+  --el-button-text-color: #1A1A1A;
+}
+
+/* 输入框样式 */
+.el-input__wrapper,
+.el-textarea__inner {
+  background: rgba(245, 240, 230, 0.8) !important;
+  border-color: rgba(139, 35, 35, 0.15) !important;
+  box-shadow: none !important;
+}
+
+.el-input__wrapper:hover,
+.el-textarea__inner:hover {
+  border-color: #C9A962 !important;
+}
+
+.el-input__wrapper.is-focus,
+.el-textarea__inner:focus {
+  border-color: #8B2323 !important;
+}
+
+/* 选择器 */
+.el-select-dropdown {
+  background: #F5F0E6 !important;
+  border-color: rgba(139, 35, 35, 0.15) !important;
+}
+
+.el-select-dropdown__item {
+  color: #4A4A4A;
+}
+
+.el-select-dropdown__item:hover {
+  background: rgba(139, 35, 35, 0.06);
+}
+
+.el-select-dropdown__item.selected {
+  color: #8B2323;
+  font-weight: 500;
+}
+
+/* 对话框 */
+.el-dialog {
+  background: #F5F0E6 !important;
+  border: 1px solid rgba(139, 35, 35, 0.15);
+}
+
+.el-dialog__header {
+  background: rgba(139, 35, 35, 0.04);
+  border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+}
+
+.el-dialog__title {
+  color: #2A2A2A;
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* 消息提示 */
+.el-message {
+  background: #F5F0E6;
+  border-color: rgba(139, 35, 35, 0.15);
+}
+
+/* 标签 */
+.el-tag {
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* 加载动画 */
+.el-loading-spinner .circular {
+  stroke: #8B2323;
+}
+
+/* 分页 */
+.el-pagination.is-background .el-pager li:not(.is-disabled).is-active {
+  background-color: #8B2323;
+}
+
+/* 空状态 */
+.el-empty__description {
+  color: #7A7A7A;
+}

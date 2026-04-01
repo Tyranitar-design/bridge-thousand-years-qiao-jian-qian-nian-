@@ -1,0 +1,258 @@
+/**
+ * 全局移动端响应式样式
+ * 桥见千年项目
+ */
+
+/* ===== 全局移动端适配 ===== */
+@media (max-width: 768px) {
+  /* 字体缩放 */
+  html {
+    font-size: 14px;
+  }
+  
+  /* 滚动条优化 */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  /* 按钮最小点击区域 */
+  .el-button {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+  
+  /* 输入框优化 */
+  .el-input__inner {
+    font-size: 16px !important; /* 防止iOS自动缩放 */
+  }
+  
+  /* 选择器优化 */
+  .el-select {
+    width: 100% !important;
+  }
+  
+  /* 卡片内边距 */
+  .chart-card,
+  .info-card,
+  .tech-card {
+    padding: 12px !important;
+  }
+  
+  /* 标题字体 */
+  .main-title {
+    font-size: 20px !important;
+    letter-spacing: 4px !important;
+  }
+  
+  .sub-title {
+    font-size: 11px !important;
+  }
+  
+  /* 卷轴标题 */
+  .scroll-left,
+  .scroll-right {
+    width: 10px !important;
+  }
+  
+  .scroll-content {
+    padding: 10px 20px !important;
+  }
+  
+  /* 网格布局改为双列 */
+  .stats-cards,
+  .featured-grid,
+  .spirit-grid,
+  .insight-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  
+  .stats-grid,
+  .bridge-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 双栏布局改为单栏 */
+  .craftsmen-main,
+  .structure-container,
+  .ai-qa-container,
+  .bridge-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 隐藏侧边栏 */
+  .suggestions-section {
+    display: none !important;
+  }
+  
+  /* 卡片装饰角 */
+  .card-corner {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  /* 统计卡片 */
+  .stat-card {
+    padding: 12px !important;
+  }
+  
+  .card-icon {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+  
+  .stat-value {
+    font-size: 20px !important;
+  }
+  
+  /* 图表高度 */
+  .chart {
+    height: 180px !important;
+  }
+  
+  .region-chart {
+    height: 220px !important;
+  }
+  
+  /* 印章/标签 */
+  .header-seal {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+  
+  /* 时间轴 */
+  .timeline-track {
+    padding-left: 30px !important;
+  }
+  
+  .timeline-track::before {
+    left: 10px !important;
+  }
+  
+  .node-marker {
+    left: -30px !important;
+  }
+  
+  .node-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  
+  /* 详情页 */
+  .bridge-header {
+    padding: 12px !important;
+  }
+  
+  .bridge-title {
+    font-size: 20px !important;
+  }
+  
+  .header-meta {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .image-section {
+    padding: 12px !important;
+  }
+  
+  .main-image {
+    height: 200px !important;
+  }
+  
+  /* 建造坊 */
+  .components-panel {
+    display: none !important;
+  }
+  
+  .build-area {
+    width: 100% !important;
+  }
+  
+  /* 答题页 */
+  .game-info {
+    flex-direction: column !important;
+  }
+  
+  .info-item {
+    width: 100% !important;
+  }
+  
+  /* 对比页 */
+  .compare-table {
+    font-size: 11px !important;
+  }
+  
+  .compare-table td {
+    padding: 8px 6px !important;
+  }
+}
+
+/* ===== 超小屏幕适配 ===== */
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 18px !important;
+    letter-spacing: 2px !important;
+  }
+  
+  .stats-cards,
+  .spirit-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .stat-card {
+    flex-direction: row !important;
+  }
+  
+  /* 隐藏次要信息 */
+  .bridge-features {
+    display: none !important;
+  }
+  
+  .thumbnail-list {
+    display: none !important;
+  }
+  
+  /* 简化导航 */
+  .back-nav {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+}
+
+/* ===== 横屏模式 ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .dashboard-container {
+    height: auto !important;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    display: block !important;
+  }
+  
+  .chart {
+    height: 160px !important;
+  }
+}
+
+/* ===== 触摸优化 ===== */
+@media (hover: none) {
+  /* 移除hover效果，避免触摸设备上的粘滞效果 */
+  .bridge-item:hover,
+  .craftsman-card:hover,
+  .work-item:hover,
+  .bridge-tag:hover {
+    transform: none !important;
+    background: inherit !important;
+  }
+  
+  /* 点击反馈 */
+  .bridge-item:active,
+  .craftsman-card:active {
+    background: rgba(139, 35, 35, 0.1) !important;
+  }
+}

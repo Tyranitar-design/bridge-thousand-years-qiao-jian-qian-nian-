@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 后端服务
+  backend:
+    build: ./backend
+    container_name: bridge-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - GLM_API_KEY=${GLM_API_KEY:-}
+    volumes:
+      - ./backend/data:/app/data
+    restart: unless-stopped
+
+  # 前端服务
+  frontend:
+    build: ./frontend
+    container_name: bridge-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+# 网络配置
+networks:
+  default:
+    name: bridge-network
