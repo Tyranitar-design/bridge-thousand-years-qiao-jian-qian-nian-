@@ -74,7 +74,7 @@
             v-for="(option, index) in currentQuestion.options" 
             :key="index"
             class="option-item"
-            :class="{ selected: selectedAnswer === index, correct: checkCorrectness(index), wrong: selectedAnswer === index && !checkCorrectness(index) }"
+            :class="{ selected: selectedAnswer === index, wrong: selectedAnswer === index && !isCorrect }"
             @click="selectAnswer(index)"
           >
             <span class="option-label">{{ String.fromCharCode(65 + index) }}.</span>
@@ -88,10 +88,13 @@
             <span class="feedback-icon">{{ isCorrect ? '✅' : '❌' }}</span>
             <span class="feedback-text">{{ isCorrect ? '回答正确！' : '回答错误' }}</span>
           </div>
+          <p class="correct-answer" v-if="!isCorrect">
+            <strong>正确答案：</strong>{{ currentQuestion.options[currentQuestion.correct] }}
+          </p>
           <p class="explanation" v-if="currentQuestion.explanation">{{ currentQuestion.explanation }}</p>
           
           <div class="next-buttons">
-            <el-button type="primary" @click="nextQuestion" :disabled="!isChecking">
+            <el-button type="primary" @click="nextQuestion" :disabled="selectedAnswer === null">
               {{ currentQuestionIndex < questions.length - 1 ? '下一题 →' : '查看结果' }}
             </el-button>
           </div>
@@ -123,7 +126,7 @@
           <div class="wrong-items">
             <div class="wrong-item" v-for="(qa, idx) in wrongAnswers" :key="idx">
               <p class="wrong-q">{{ qa.question }}</p>
-              <p class="wrong-a"><strong>正确答案：</strong> {{ qa.correctOption }}</p>
+              <p class="wrong-a"><strong>正确答案：</strong>{{ qa.correctOption }}</p>
               <p class="wrong-exp" v-if="qa.explanation"><em>{{ qa.explanation }}</em></p>
             </div>
           </div>
@@ -221,7 +224,6 @@ const currentQuestionIndex = ref(0)
 const score = ref(0)
 const timer = ref(30)
 const selectedAnswer = ref(null)
-const isChecking = ref(true)
 const wrongAnswers = ref([])
 
 const currentQuestion = computed(() => questions.value[currentQuestionIndex.value])
@@ -253,7 +255,6 @@ let timerInterval = null
 const selectAnswer = (index) => {
   if (selectedAnswer.value !== null) return
   selectedAnswer.value = index
-  isChecking.value = false
   
   if (index === currentQuestion.value.correct) {
     score.value += 10
@@ -274,7 +275,6 @@ const nextQuestion = () => {
   if (currentQuestionIndex.value < questions.value.length - 1) {
     currentQuestionIndex.value++
     selectedAnswer.value = null
-    isChecking.value = true
     timer.value = 30
     startTimer()
   } else {
@@ -284,7 +284,7 @@ const nextQuestion = () => {
 
 const handleTimeout = () => {
   clearInterval(timerInterval)
-  selectedAnswer.value = null
+  selectedAnswer.value = -1
   wrongAnswers.value.push({
     question: currentQuestion.value.question,
     correctOption: currentQuestion.value.options[currentQuestion.value.correct],
@@ -355,14 +355,7 @@ const badgeDesc = computed(() => {
   return '继续学习，你会成为专家的！'
 })
 
-const checkCorrectness = (index) => index === currentQuestion.value.correct
 
-watch(() => currentQuestionIndex.value, () => {
-  selectedAnswer.value = null
-  isChecking.value = true
-  timer.value = 30
-  startTimer()
-})
 </script>
 
 <style scoped>
@@ -427,6 +420,7 @@ watch(() => currentQuestionIndex.value, () => {
 .feedback-message { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
 .feedback-message.correct { color: #27ae60; }
 .feedback-message.wrong { color: #c0392b; }
+.correct-answer { font-size: 14px; color: #27ae60; margin: 8px 0; padding: 10px; background: rgba(39, 174, 96, 0.1); border-radius: 6px; }
 .explanation { font-size: 13px; color: #4A4A4A; line-height: 1.6; margin: 12px 0; padding: 12px; background: rgba(139, 35, 35, 0.04); border-radius: 6px; }
 .next-buttons { text-align: right; }
 
