@@ -1,5 +1,7 @@
 # 【桥见千年】中国古代桥梁智慧可视化平台
 
+> 🌐 **[在线演示](https://bridge-thousand-years-qiao-jian-qian-nian.vercel.app)** - 点击立即体验！
+>
 > 🌉 桥见千年，连接古今——用AI与可视化技术，让千年桥梁智慧焕发新生
 
 [![Vue](https://img.shields.io/badge/Vue-3.5-brightgreen)](https://vuejs.org/)
